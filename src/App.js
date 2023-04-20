@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import EIP20Factory from "./EIP20Factory.json";
+import { BigNumber } from "bignumber.js";
 import "./App.css";
 import Logo from "./logo.png"
 function App() {
@@ -48,7 +49,7 @@ function App() {
       const tokenName = name.trim();
       const tokenSymbol = symbol.trim();
       const tokenDecimals = parseInt(decimals);
-      const tokenSupply = parseInt(supply);
+      const tokenSupply = new BigNumber(supply);
 
       if (!tokenName || !tokenSymbol || isNaN(tokenDecimals) || isNaN(tokenSupply)) {
         setError("Please enter valid token details.");
