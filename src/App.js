@@ -57,7 +57,7 @@ function App() {
       }
 
       await factoryContract.methods
-        .createEIP20(tokenSupply, tokenName, tokenDecimals, tokenSymbol)
+        .createEIP20(tokenSupply.toString(), tokenName, tokenDecimals, tokenSymbol) 
         .send({ from: accounts[0] })
         .on("transactionHash", (hash) => setTxHash(hash));
 
